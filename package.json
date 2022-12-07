@@ -1,5 +1,5 @@
 {
-  "name": "@bygdle/search",
+  "name": "@bygdle/search-js",
   "version": "0.0.1",
   "description": "simple search and filter functions",
   "main": "lib/index.js",
