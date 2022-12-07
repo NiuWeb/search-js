@@ -1,7 +1,7 @@
 {
   "name": "@bygdle/search",
   "version": "0.0.1",
-  "description": "Search and filter utilities",
+  "description": "simple search and filter functions",
   "main": "lib/index.js",
   "scripts": {
     "test": "jest src",
