@@ -4,6 +4,7 @@
   "description": "simple search and filter functions",
   "main": "lib/index.js",
   "scripts": {
+    "prepare": "npm run build",
     "test": "jest src",
     "build": "npx ts-patch install && ts-node build.ts",
     "dev": "npx ts-patch install && ts-node build.ts watch",
