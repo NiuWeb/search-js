@@ -1,6 +1,6 @@
 {
   "name": "@bygdle/search-js",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "simple search and filter functions",
   "main": "lib/index.js",
   "scripts": {
