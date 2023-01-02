@@ -6,6 +6,11 @@ export interface SearchProps<Value> {
     values: Value[]
     /** Search criteria */
     search: SearchItem
+    /** 
+     * whether to match with at least one of the search criteria (some) 
+     * or with all of the search criteria (every). Default is "some"
+     */
+    mode?: "some" | "every"
     /** A function that maps an input value into a comparable search item */
     map(value: Value): SearchItem
 
@@ -61,9 +66,10 @@ export function Search<Value>(props: SearchProps<Value>): SearchResult<Value> {
         indexes: [],
         results: []
     }
+    const mode = props.mode || "some"
     for (let i = 0; i < props.values.length; i++) {
         const target = ReduceSearchItem(props.map(props.values[i]))
-        const some = search.some(want => target.some(got => {
+        const some = search[mode](want => target.some(got => {
             if (typeof want !== typeof got) {
                 return false
             }
@@ -86,7 +92,7 @@ export function Search<Value>(props: SearchProps<Value>): SearchResult<Value> {
         if (some) {
             result.values.push(props.values[i])
             result.indexes.push(i)
-            result.results.push({value: props.values[i], index: i})
+            result.results.push({ value: props.values[i], index: i })
         }
     }
     return result

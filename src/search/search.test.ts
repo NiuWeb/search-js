@@ -8,7 +8,7 @@ describe("Search utilities", () => {
         ]
         const reduced = new Set(ReduceSearchItem(input))
         const expected = new Set(["A", "B", "C", "D", "E", "F", "G", "H", 1, 2, 3])
-    
+
         expect(reduced).toEqual(expected)
     })
 })
@@ -42,5 +42,16 @@ describe("Search function", () => {
         expect(results[0].value).toBe(data[0])
         expect(results[1].value).toBe(data[3])
         expect(results[2].value).toBe(data[4])
+    })
+
+    test("Search for match with all criteria", () => {
+        const { results } = Search({
+            values: data,
+            map: v => v.name,
+            mode: "every",
+            search: ["A", "B"]
+        })
+        expect(results.length).toBe(1)
+        expect(results[0].value).toBe(data[4])
     })
 })
