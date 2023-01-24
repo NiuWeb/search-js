@@ -3,7 +3,7 @@ export type SearchItem = undefined | number | string | SearchItem[]
 
 export interface SearchProps<Value> {
     /** Values to search in */
-    values: Value[]
+    values: readonly Value[]
     /** Search criteria */
     search: SearchItem
     /** 
