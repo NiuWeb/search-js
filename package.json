@@ -2,12 +2,16 @@
   "name": "@bygdle/search-js",
   "version": "0.2.0",
   "description": "simple search and filter functions",
-  "main": "lib/index.js",
+  "main": "lib",
+  "exports": {
+    "import": "./lib/index.js",
+    "require": "./lib/index.cjs"
+  },
   "scripts": {
-    "prepare": "npm run build",
+    "prepare": "npm run build && npx ts-patch install",
     "test": "jest src",
-    "build": "npx ts-patch install && ts-node build.ts",
-    "dev": "npx ts-patch install && ts-node build.ts watch",
+    "build": "lib-build -e src/index.ts -o lib -t tsconfig.json -cjs 1",
+    "dev": "lib-build -e src/index.ts -o lib -t tsconfig.json -w true",
     "circular": "npx madge --circular --extensions ts ./src/"
   },
   "repository": {
@@ -17,7 +21,9 @@
   "keywords": [],
   "author": "@Bygdle#8333",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "@bygdle/lib-build": "^0.1.2"
+  },
   "devDependencies": {
     "@types/jest": "^29.0.3",
     "@types/klaw-sync": "^6.0.1",
