@@ -21,10 +21,8 @@
   "keywords": [],
   "author": "@Bygdle#8333",
   "license": "MIT",
-  "dependencies": {
-    "@bygdle/lib-build": "^0.1.2"
-  },
   "devDependencies": {
+    "@bygdle/lib-build": "^0.1.2",
     "@types/jest": "^29.0.3",
     "@types/klaw-sync": "^6.0.1",
     "@types/node": "^18.7.18",
